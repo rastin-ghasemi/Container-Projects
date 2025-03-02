@@ -26,3 +26,8 @@ Use the COPY --from=<stage> command to copy files from one stage to another.
 Final Image:
 
 Only the last stage in the Dockerfile is used to create the final image. Earlier stages are discarded unless explicitly copied.
+
+
+
+## Example: Multi-Stage Build for a Node.js Application
+
