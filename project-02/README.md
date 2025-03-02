@@ -29,5 +29,25 @@ Only the last stage in the Dockerfile is used to create the final image. Earlier
 
 
 
-## Example: Multi-Stage Build for a Node.js Application
+## Example: Multi-Stage Build for a Node.js Application Dockerfile
+ # Stage 1: Build the application and call it installer
+	FROM node:18-alpine AS installer
+ # 2: Sets the working directory inside the container to /app. All subsequent commands will run from this directory.
+	WORKDIR /app
+ # 3: Copy Dependency Files:
+   This ensures that only dependency files are copied first, allowing Docker to cache this layer for faster builds.
+	COPY package*.json ./
+ # 4: Installs all Node.js dependencies listed in package.json.
+	RUN npm install 
+ # 5: Copy Application Code:
+   Copies the rest of the application code (e.g., src, public, etc.) into the /app directory.
+	COPY . .
+ # 6: Build the Application:
+	RUN npm run build
+ # Stage 2: Serve the Application
+   Uses the official Nginx image to serve the static files built in Stage 1 and named it deployer.
+	FROM nginx:latest AS deployer
+ # 2: Copies the build folder (generated in Stage 1) from the installer stage into the Nginx HTML directory (/usr/share/nginx/html).
+   Nginx serves the files from this directory by default.	
+	COPY --from=installer /app/build /usr/share/nginx/html
 
