@@ -2,7 +2,7 @@ project focuses on multiple stages.
  
 This Dockerfile is a multi-stage build for a Node.js application that uses React (or any front-end framework) and serves the built files using Nginx. Let’s break it down step by step:
 
-## First step What is multi-stage build?
+## What is multi-stage build?
 
 A multi-stage build is a feature in Docker that allows you to use multiple FROM statements in a single Dockerfile. Each FROM statement defines a new build stage, and you can selectively copy files from one stage to another. This is particularly useful for:
 
