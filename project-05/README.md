@@ -1,0 +1,1 @@
+## In this project we create our podes using yml file called nginx-pod.yaml
