@@ -5,3 +5,4 @@ This repository contains all of my test projects.
 ## project 03 == Kubernetes Architecture
 ## project 04 == Install Kubernetes Cluster locally
 ## project 05 == create pods
+## project 06 == Deployment && Replicaset
