@@ -3,6 +3,7 @@ In this exercise, you will create a Deployment with multiple replicas. After ins
 ## Replicaset
 1- Create a new Replicaset based on the nginx image with 3 replicas.
 using ./Replicset/rc.yaml
+
 2- Update the replicas to 4 from the YAML.
 comand:
 
@@ -17,16 +18,44 @@ kubectl scale replicaset nginx-replicaset --replicas=6
 
 2- List the Deployment and ensure the correct number of replicas is running.
 
+kubectl get deployment
+
+kubectl get pods
+
 3- Update the image to nginx:1.23.4.
+
+ kubectl set image deployment nginx nginx=nginx:1.23.4
 
 4- Verify that the change has been rolled out to all replicas.
 
+kubectl get pods -w
+
+kubectl describe pods nginx-7c98cc8b86-9rqht  | grep -i image
+
+
 5- Assign the change cause "Pick up patch version" to the revision.
 
+In Kubernetes, you can assign a change cause to a Deployment revision by using the kubernetes.io/change-cause annotation. This annotation helps you track why a particular revision was created (e.g., for debugging or auditing purposes).
+
+its mean you can add message when you update yaml file to show on history.
+
+using revison.yaml
+
+or
+
+kubectl annotate deployment/nginx-deployment kubernetes.io/change-cause="Pick up patch version"
+
+then change imge
+
+
 6- Scale the Deployment to 5 replicas.
+
+kubectl scale --replicas=5 deployment nginx
 
 7- Have a look at the Deployment rollout history.
 
 8- Revert the Deployment to revision 1.
 
 9- Ensure that the Pods use the image nginx:1.23.0.
+
+ kubectl describe pods nginx-759cd5f4c4-ghx26  | grep -i image
