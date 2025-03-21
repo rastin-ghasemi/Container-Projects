@@ -2,10 +2,16 @@
 In this exercise, you will create a Deployment with multiple replicas. After inspecting the Deployment, you will update its Pod template. You will also be able to use the rollout history to roll back to a previous revision.
 ## Replicaset
 1- Create a new Replicaset based on the nginx image with 3 replicas.
-
+using ./Replicset/rc.yaml
 2- Update the replicas to 4 from the YAML.
+comand:
 
+ kubectl edit rs/nginx-replicaset
+
+ and change the replicaset 
 3- Update the replicas to 6 from the command line.
+
+kubectl scale replicaset nginx-replicaset --replicas=6
 ## Deployment
 1- Create a Deployment named nginx with 3 replicas. The Pods should use the nginx:1.23.0 image and the name nginx. The Deployment uses the label tier=backend. The Pod template should use the label app=v1.
 
