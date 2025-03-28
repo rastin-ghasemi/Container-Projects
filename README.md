@@ -7,3 +7,4 @@ This repository contains all of my test projects.
 ## project 05 == create pods
 ## project 06 == Deployment && Replicaset
 ## project 07 == Service
+## project 08 == Namespaces
