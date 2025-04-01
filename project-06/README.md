@@ -18,19 +18,19 @@ kubectl scale replicaset nginx-replicaset --replicas=6
 
 2- List the Deployment and ensure the correct number of replicas is running.
 
-kubectl get deployment
+- kubectl get deployment
 
-kubectl get pods
+- kubectl get pods
 
 3- Update the image to nginx:1.23.4.
 
- kubectl set image deployment nginx nginx=nginx:1.23.4
+ - kubectl set image deployment nginx nginx=nginx:1.23.4
 
 4- Verify that the change has been rolled out to all replicas.
 
 kubectl get pods -w
 
-kubectl describe pods nginx-7c98cc8b86-9rqht  | grep -i image
+- kubectl describe pods nginx-7c98cc8b86-9rqht  | grep -i image
 
 
 5- Assign the change cause "Pick up patch version" to the revision.
@@ -50,7 +50,7 @@ then change imge
 
 6- Scale the Deployment to 5 replicas.
 
-kubectl scale --replicas=5 deployment nginx
+- kubectl scale --replicas=5 deployment nginx
 
 7- Have a look at the Deployment rollout history.
 
