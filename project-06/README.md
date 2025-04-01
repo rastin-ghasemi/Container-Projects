@@ -2,7 +2,7 @@
 In this exercise, you will create a Deployment with multiple replicas. After inspecting the Deployment, you will update its Pod template. You will also be able to use the rollout history to roll back to a previous revision.
 ## Replicaset
 1- Create a new Replicaset based on the nginx image with 3 replicas.
-using ./Replicset/rc.yaml
+-- using ./Replicset/rc.yaml
 
 2- Update the replicas to 4 from the YAML.
 comand:
