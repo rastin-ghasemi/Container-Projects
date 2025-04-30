@@ -1,0 +1,12 @@
+## Explanation: This specifies the type of resource being defined. In this case, it’s a Cluster, which is the top-level resource for defining a Kubernetes cluster in kind.
+kind: Cluster
+## Explanation: This specifies the API version of the kind configuration schema being used. kind.x-k8s.io/v1alpha4 is the version of the API that defines how the cluster configuration
+##  should be interpreted.
+## Purpose: Ensures compatibility with the kind tool. Different versions of kind may support different API versions, so this ensures the configuration is interpreted correctly.
+apiVersion: kind.x-k8s.io/v1alpha4
+## This is the start of the list of nodes that will be part of the Kubernetes cluster. Each node is defined as an item in this list.
+nodes:
+  - role: control-plane
+  - role: worker
+#  - role: worker
+#  - role: worker
